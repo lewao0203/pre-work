@@ -203,6 +203,7 @@ git init 项目名称：执行后，当前目录下生成一个.git目录，代�
 
     git log查看提交历史
     git log -1 只看第一个
+    取回更新后，会返回一个FETCH_HEAD ，指的是某个branch在服务器上的最新状态，我们可以在本地通过它查看刚取回的更新信息git log -p FETCH_HEAD
 ```
 
 ```
