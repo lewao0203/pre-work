@@ -202,6 +202,7 @@ git init 项目名称：执行后，当前目录下生成一个.git目录，代�
 查看日志
 
     git log查看提交历史
+    git log -1 只看第一个
 ```
 
 ```
@@ -210,6 +211,7 @@ git init 项目名称：执行后，当前目录下生成一个.git目录，代�
     git push：git commit是将自己的修改从暂存区提交到本地版本库，git push则将本地版本库中的分支推送到远程服务器上对应的分支。
     git push origin brach_name.branch_name决定了推送成功后，远端服务器上的分知名。
     git push origin branch_name:new_branch_name：本地分支名与远端不一致
+    注意 pull origin 远端：本地
 ```
 
 ```
