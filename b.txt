@@ -1,4 +1,8 @@
 hahah
 try modify two log
-solve conflict
+<<<<<<< HEAD
+=======
+solve chongtu
+
+>>>>>>> test
 
