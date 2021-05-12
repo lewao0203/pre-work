@@ -204,6 +204,7 @@ git init 项目名称：执行后，当前目录下生成一个.git目录，代�
     git log查看提交历史
     git log -1 只看第一个
     取回更新后，会返回一个FETCH_HEAD ，指的是某个branch在服务器上的最新状态，我们可以在本地通过它查看刚取回的更新信息git log -p FETCH_HEAD
+    git reflog 详细操作
 ```
 
 ```
@@ -255,7 +256,7 @@ git init 项目名称：执行后，当前目录下生成一个.git目录，代�
     git reset 撤销当前工作区中的某些git add/commit操作，可将工作区内容会退到历史提交节点。git reset commit_id
     
     git checkout . 回退本地所有修改而未提交的文件内容。相当于取消本地工作取得修改，直接用暂存区的文件覆盖本地文件。
-    git checkout -filename 仅回退某个未提交的文件
+    git checkout filename 仅回退某个未提交的文件
     git checkout commit_id 回退到某个提交版本，可看做切换到一个临时分支
 ```
 
@@ -266,5 +267,43 @@ git init 项目名称：执行后，当前目录下生成一个.git目录，代�
 ```
 报错，无法克隆，按照教程实现，但不清楚为啥
 https://blog.csdn.net/dashi_lu/article/details/89641778
+```
+
+###### 如何处理合并冲突
+
+```
+假设存在两个分支
+1、master中，b.txt内容 
+hahah
+try modify two log
+solve conflict
+2、test中，b.txt内容 
+hahah
+try modify two log
+solve chongtu
+
+则在master分支下，git merge test，报错如下
+Auto-merging b.txt
+CONFLICT (content): Merge conflict in b.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+即提醒我们b.txt中有冲突，那么，此时若查看文件得到
+$ cat b.txt
+hahah
+try modify two log
+<<<<<<< HEAD
+solve conflict
+=======
+solve chongtu
+
+>>>>>>> test
+
+上述即显示了冲突文本，
+然后可 vim b.txt，修改文本，双击d可删除所在行
+
+之后再add commit 即解决冲突
+git commit -am "solved conflict"
+[master ad4024e] solved conflict
+
 ```
 
